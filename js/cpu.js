@@ -31,7 +31,7 @@
   const reads = (i) => (i.op === 'ADD' || i.op === 'BNE' ? [i.rs1, i.rs2] : i.op === 'ADDI' || i.op === 'STORE' ? [i.rs1] : []);
   const writes = (i) => (i.op === 'MOVI' || i.op === 'ADD' || i.op === 'ADDI' || i.op === 'LOAD' ? i.rd : -1);
   const isI = (x) => x && x.kind === 'i';
-  const groupColor = (idx) => (idx <= 2 ? C.fg3 : idx <= 5 ? C.copper : C.signal);
+  const groupColor = (idx) => (idx <= 2 ? C.fg3 : idx <= 5 ? C.accent : C.signal);
 
   let S, fwdOn = true, playing = !reduced, lastStep = 0, doneAt = 0;
   let anim = { t0: -1e9, dur: 360 };
@@ -196,7 +196,7 @@
     for (let i = 0; i < 5; i++) {
       const x = boxX(i);
       ctx.font = '500 11px "IBM Plex Mono", monospace';
-      ctx.fillStyle = i === 2 ? C.copper : C.fg2;
+      ctx.fillStyle = i === 2 ? C.accent : C.fg2;
       ctx.textAlign = 'left';
       ctx.fillText(STAGES[i], x, 20);
       if (!narrow) { ctx.fillStyle = C.fg3; ctx.font = '10px "IBM Plex Mono", monospace'; ctx.fillText(SUB[i], x + 34, 20); }
@@ -209,10 +209,10 @@
       const b = S.bubbles && S.bubbles[i];
       if (b) {
         ctx.setLineDash([3, 3]);
-        ctx.strokeStyle = b === 'flush' ? rgba(C.alert, 0.7) : rgba(C.copper, 0.7);
+        ctx.strokeStyle = b === 'flush' ? rgba(C.alert, 0.7) : rgba(C.accent, 0.7);
         roundRect(ctx, x + 6.5, G.boxY + 8.5, G.bw - 13, G.boxH - 17, 3); ctx.stroke();
         ctx.setLineDash([]);
-        ctx.fillStyle = b === 'flush' ? C.alert : C.copper;
+        ctx.fillStyle = b === 'flush' ? C.alert : C.accent;
         ctx.font = '10px "IBM Plex Mono", monospace'; ctx.textAlign = 'center';
         ctx.fillText(narrow ? 'nop' : b === 'flush' ? 'bubble · flushed' : 'bubble · stall', x + G.bw / 2, G.boxY + G.boxH / 2);
       }
@@ -232,7 +232,7 @@
       ctx.globalAlpha = a;
       ctx.fillStyle = C.bg3;
       roundRect(ctx, x + 6, y, tw, th, 3); ctx.fill();
-      ctx.strokeStyle = t.flushed ? C.alert : t.to === 2 && !t.gone ? C.copper : C.line2;
+      ctx.strokeStyle = t.flushed ? C.alert : t.to === 2 && !t.gone ? C.accent : C.line2;
       ctx.lineWidth = 1; ctx.stroke();
       ctx.fillStyle = groupColor(t.ins.idx);
       ctx.fillRect(x + 6, y + 6, 2, th - 12);
@@ -279,10 +279,10 @@
     for (let k = 0; k < visCols; k++) {
       const cyc = c0 + k, x = G.pad + lw + k * cw;
       if (cyc === S.cycle) {
-        ctx.fillStyle = rgba(C.copper, 0.08);
+        ctx.fillStyle = rgba(C.accent, 0.08);
         ctx.fillRect(x, top - 2, cw, rows.length * rh + 4);
       }
-      ctx.fillStyle = cyc === S.cycle ? C.copper : C.fg3;
+      ctx.fillStyle = cyc === S.cycle ? C.accent : C.fg3;
       if (cyc === S.cycle || cyc % (narrow ? 4 : 2) === 0) ctx.fillText(cyc, x + cw / 2, top + 1 - 8);
     }
     rows.forEach((ins, r) => {
@@ -301,15 +301,15 @@
         if (k < 0 || k >= visCols) continue;
         const x = G.pad + lw + k * cw;
         const isEx = cell.s === 2 && !cell.stall;
-        ctx.fillStyle = isEx ? rgba(C.copper, 0.22) : cell.stall ? rgba(C.copper, 0.07) : C.bg3;
+        ctx.fillStyle = isEx ? rgba(C.accent, 0.22) : cell.stall ? rgba(C.accent, 0.07) : C.bg3;
         ctx.fillRect(x + 1, y + 1, cw - 2, rh - 4);
         if (cell.stall) {
-          ctx.strokeStyle = rgba(C.copper, 0.35); ctx.lineWidth = 1;
+          ctx.strokeStyle = rgba(C.accent, 0.35); ctx.lineWidth = 1;
           ctx.save(); ctx.beginPath(); ctx.rect(x + 1, y + 1, cw - 2, rh - 4); ctx.clip();
           for (let d = -rh; d < cw; d += 5) { ctx.beginPath(); ctx.moveTo(x + d, y + rh); ctx.lineTo(x + d + rh, y); ctx.stroke(); }
           ctx.restore();
         }
-        ctx.fillStyle = isEx ? C.copper : cell.stall ? rgba(C.copper, 0.8) : C.fg2;
+        ctx.fillStyle = isEx ? C.accent : cell.stall ? rgba(C.accent, 0.8) : C.fg2;
         ctx.textAlign = 'center';
         ctx.font = '9px "IBM Plex Mono", monospace';
         ctx.fillText(STAGES[cell.s], x + cw / 2, y + rh / 2 - 1);

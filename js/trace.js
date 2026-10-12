@@ -111,10 +111,10 @@
       ctx.stroke();
     }
     ctx.restore();
-    ctx.fillStyle = C.copper; ctx.fillRect(sx - 1, 0, 2, h);
-    ctx.fillStyle = C.bg2; ctx.strokeStyle = C.copper; ctx.lineWidth = 1.5;
+    ctx.fillStyle = C.accent; ctx.fillRect(sx - 1, 0, 2, h);
+    ctx.fillStyle = C.bg2; ctx.strokeStyle = C.accent; ctx.lineWidth = 1.5;
     ctx.beginPath(); ctx.arc(sx, h / 2, 13, 0, 6.283); ctx.fill(); ctx.stroke();
-    ctx.fillStyle = C.copper; ctx.font = '12px "IBM Plex Mono", monospace'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillStyle = C.accent; ctx.font = '12px "IBM Plex Mono", monospace'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
     ctx.fillText('↔', sx, h / 2 + 1);
   }
   function rebuild() {

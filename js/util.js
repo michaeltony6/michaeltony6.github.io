@@ -5,7 +5,7 @@ window.MT = (() => {
 
   const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
   const C = {};
-  ['bg', 'bg-2', 'bg-3', 'line', 'line-2', 'fg', 'fg-2', 'fg-3', 'copper', 'signal', 'alert'].forEach((k) => {
+  ['bg', 'bg-2', 'bg-3', 'line', 'line-2', 'fg', 'fg-2', 'fg-3', 'accent', 'signal', 'alert'].forEach((k) => {
     C[k.replace('-', '')] = css('--' + k);
   });
 

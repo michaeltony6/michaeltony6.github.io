@@ -154,7 +154,7 @@
     // trail
     for (let i = 1; i < trail.length; i++) {
       const a = P(trail[i - 1][0], trail[i - 1][1]), b = P(trail[i][0], trail[i][1]);
-      ctx.strokeStyle = rgba(C.copper, (i / trail.length) * 0.55); ctx.lineWidth = 1.5;
+      ctx.strokeStyle = rgba(C.accent, (i / trail.length) * 0.55); ctx.lineWidth = 1.5;
       ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke();
     }
 
@@ -167,7 +167,7 @@
 
     // target
     const tp = P(tgt.x, tgt.z);
-    ctx.strokeStyle = C.copper; ctx.lineWidth = 1.2;
+    ctx.strokeStyle = C.accent; ctx.lineWidth = 1.2;
     ctx.beginPath(); ctx.arc(tp[0], tp[1], 7, 0, 6.283); ctx.stroke();
     ctx.beginPath(); ctx.moveTo(tp[0] - 12, tp[1]); ctx.lineTo(tp[0] - 4, tp[1]); ctx.moveTo(tp[0] + 4, tp[1]); ctx.lineTo(tp[0] + 12, tp[1]);
     ctx.moveTo(tp[0], tp[1] - 12); ctx.lineTo(tp[0], tp[1] - 4); ctx.moveTo(tp[0], tp[1] + 4); ctx.lineTo(tp[0], tp[1] + 12); ctx.stroke();
@@ -182,13 +182,13 @@
     ctx.strokeStyle = '#cfd4de'; ctx.lineWidth = 3;
     ctx.beginPath(); ctx.moveTo(G.hx, G.hy); ctx.lineTo(kp[0], kp[1]); ctx.lineTo(fp[0], fp[1]); ctx.stroke();
     const joint = (p, r, ang, s) => {
-      ctx.fillStyle = C.bg2; ctx.strokeStyle = s ? C.alert : C.copper; ctx.lineWidth = 2;
+      ctx.fillStyle = C.bg2; ctx.strokeStyle = s ? C.alert : C.accent; ctx.lineWidth = 2;
       ctx.beginPath(); ctx.arc(p[0], p[1], r, 0, 6.283); ctx.fill(); ctx.stroke();
       ctx.beginPath(); ctx.moveTo(p[0], p[1]); ctx.lineTo(p[0] + Math.sin(ang) * r, p[1] + Math.cos(ang) * r); ctx.stroke();
     };
     joint([G.hx, G.hy], 12, th[0], sat[0]);
     joint(kp, 10, th[0] + th[1], sat[1]);
-    ctx.fillStyle = C.copper; ctx.beginPath(); ctx.arc(fp[0], fp[1], 5, 0, 6.283); ctx.fill();
+    ctx.fillStyle = C.accent; ctx.beginPath(); ctx.arc(fp[0], fp[1], 5, 0, 6.283); ctx.fill();
 
     // ground reaction force in stance
     if (stance) {
@@ -210,7 +210,7 @@
     ctx.strokeStyle = C.fg3; ctx.beginPath(); ctx.moveTo(ix + 6, hy2 + ll + 4.5); ctx.lineTo(ix + iw - 6, hy2 + ll + 4.5); ctx.stroke();
     ctx.strokeStyle = '#cfd4de'; ctx.lineWidth = 3; ctx.lineCap = 'round';
     ctx.beginPath(); ctx.moveTo(hx2, hy2); ctx.lineTo(hx2 + Math.sin(roll) * ll * 3, hy2 + Math.cos(roll) * ll); ctx.stroke();
-    ctx.fillStyle = C.bg2; ctx.strokeStyle = C.copper; ctx.lineWidth = 2;
+    ctx.fillStyle = C.bg2; ctx.strokeStyle = C.accent; ctx.lineWidth = 2;
     ctx.beginPath(); ctx.arc(hx2, hy2, 6, 0, 6.283); ctx.fill(); ctx.stroke();
 
     ctx.fillStyle = C.fg3; ctx.font = '10px "IBM Plex Mono", monospace'; ctx.textAlign = 'left';

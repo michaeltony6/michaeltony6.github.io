@@ -118,7 +118,7 @@
       const y = top + r * rh;
       const isAgg = attack.on && (r === attack.v - 1 || r === attack.v + 1);
       const isVic = attack.on && r === attack.v;
-      if (heat[r] > 0) { ctx.fillStyle = rgba(C.copper, heat[r] * (isAgg ? 0.34 : 0.07)); ctx.fillRect(left - 4, y, gw + 8, rh - 1); }
+      if (heat[r] > 0) { ctx.fillStyle = rgba(C.accent, heat[r] * (isAgg ? 0.34 : 0.07)); ctx.fillRect(left - 4, y, gw + 8, rh - 1); }
       if (refFx[r] > 0) {
         const sweep = left + gw * (1 - refFx[r]);
         const g = ctx.createLinearGradient(sweep - 60, 0, sweep + 4, 0);
@@ -126,7 +126,7 @@
         ctx.fillStyle = g; ctx.fillRect(Math.max(left - 4, sweep - 60), y, Math.min(64, sweep - left + 8), rh - 1);
       }
       ctx.textAlign = 'left';
-      ctx.fillStyle = isAgg ? C.copper : isVic ? C.alert : C.fg3;
+      ctx.fillStyle = isAgg ? C.accent : isVic ? C.alert : C.fg3;
       ctx.fillText(String(r).padStart(2, '0') + (isAgg ? ' A' : isVic ? ' V' : ''), 12, y + rh / 2);
       const s = Math.max(1.5, Math.min(cw, rh) - 3);
       for (let c = 0; c < COLS; c++) {
@@ -137,7 +137,7 @@
       const d = clamp(dist[r] / FLIP_T, 0, 1);
       const mx = w - right - meterW + 8, mw = meterW - 8;
       ctx.fillStyle = C.bg3; ctx.fillRect(mx, y + rh / 2 - 2, mw, 4);
-      ctx.fillStyle = d > 0.8 ? C.alert : d > 0.5 ? C.copper : C.fg3;
+      ctx.fillStyle = d > 0.8 ? C.alert : d > 0.5 ? C.accent : C.fg3;
       ctx.fillRect(mx, y + rh / 2 - 2, mw * d, 4);
     }
     if (!detectorOn) {

@@ -237,10 +237,10 @@ void main(){
   vec3 film=.55+.45*cos(6.28318*(phase+vec3(0.,.33,.67)));
   vec3 base=vec3(.08,.095,.13);
   vec3 col=base*s*1.9+film*s*(light*1.4+rim+.03);
-  col+=vec3(.894,.612,.361)*s*light*.12;
+  col+=vec3(.941,.761,.294)*s*light*.12;
   float on=smoothstep(bd-.02,bd+.05,uBoot);
   float flash=exp(-pow((uBoot-bd)*16.,2.));
-  col=col*on+vec3(.894,.612,.361)*s*flash*.9;
+  col=col*on+vec3(.941,.761,.294)*s*flash*.9;
   vec2 q=v-.5; col*=1.-dot(q,q)*.9;
   gl_FragColor=vec4(col,1.);
 }`;
@@ -331,7 +331,7 @@ void main(){
     p.tr = traces[Math.floor(Math.random() * traces.length)];
     p.s = 0;
     p.v = 70 + Math.random() * 110;
-    p.c = Math.random() < 0.25 ? C.signal : C.copper;
+    p.c = Math.random() < 0.25 ? C.signal : C.accent;
     p.wait = Math.random() * 1.5;
     return p;
   }
@@ -389,7 +389,7 @@ void main(){
       ctx2d.globalAlpha = 1;
       const gx = mouse.x * fit.w, gy = mouse.y * fit.h, rad = Math.max(fit.w, fit.h) * 0.45;
       const grd = ctx2d.createRadialGradient(gx, gy, 0, gx, gy, rad);
-      grd.addColorStop(0, 'rgba(228,156,92,0.28)'); grd.addColorStop(1, 'rgba(228,156,92,0)');
+      grd.addColorStop(0, 'rgba(240,194,75,0.28)'); grd.addColorStop(1, 'rgba(240,194,75,0)');
       ctx2d.globalCompositeOperation = 'lighter';
       ctx2d.fillStyle = grd; ctx2d.fillRect(0, 0, fit.w, fit.h);
       ctx2d.globalCompositeOperation = 'source-over';

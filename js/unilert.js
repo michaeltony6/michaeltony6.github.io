@@ -149,11 +149,11 @@
       ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]); pts.slice(1).forEach((p) => ctx.lineTo(p[0], p[1])); ctx.stroke();
       ctx.setLineDash([]);
     };
-    if (!known) drawRoute(ROUTES.naive, rgba(C.copper, 0.75), [], 2);
+    if (!known) drawRoute(ROUTES.naive, rgba(C.accent, 0.75), [], 2);
     else {
       const k = clamp((t - AGENTS[1].end) / 1.2, 0, 1);
       if (k < 1) drawRoute(ROUTES.naive, rgba(C.alert, 0.6 * (1 - k)), [3, 4], 2);
-      drawRoute(ROUTES.safe, rgba(C.copper, 0.85 * ease(k)), [], 2);
+      drawRoute(ROUTES.safe, rgba(C.accent, 0.85 * ease(k)), [], 2);
     }
     drawRoute(ROUTES.h2, rgba(C.fg2, 0.45), [], 1.5);
     drawRoute(ROUTES.h3, rgba(C.fg2, 0.3), [], 1.5);
@@ -177,7 +177,7 @@
       ctx.fillStyle = C.fg3; ctx.font = '10px "IBM Plex Mono", monospace'; ctx.textAlign = 'left';
       ctx.fillText(`${hp.short} ${used[i]}/${hp.total}`, bx, by);
       ctx.fillStyle = C.bg3; ctx.fillRect(bx, by + 7, bw, 3);
-      ctx.fillStyle = full ? C.alert : used[i] / hp.total > 0.7 ? C.copper : C.fg2;
+      ctx.fillStyle = full ? C.alert : used[i] / hp.total > 0.7 ? C.accent : C.fg2;
       ctx.fillRect(bx, by + 7, (bw * used[i]) / hp.total, 3);
     });
 
@@ -185,10 +185,10 @@
     const [ix, iy] = P(INC);
     for (let k = 0; k < 2; k++) {
       const pr = ((t * 0.8) + k * 0.5) % 1;
-      ctx.strokeStyle = rgba(C.copper, (1 - pr) * 0.8); ctx.lineWidth = 1.5;
+      ctx.strokeStyle = rgba(C.accent, (1 - pr) * 0.8); ctx.lineWidth = 1.5;
       ctx.beginPath(); ctx.arc(ix, iy, 6 + pr * 26, 0, 6.283); ctx.stroke();
     }
-    ctx.fillStyle = C.copper; ctx.beginPath(); ctx.arc(ix, iy, 5, 0, 6.283); ctx.fill();
+    ctx.fillStyle = C.accent; ctx.beginPath(); ctx.arc(ix, iy, 5, 0, 6.283); ctx.fill();
     ctx.fillStyle = C.fg; ctx.font = '500 10.5px "IBM Plex Mono", monospace'; ctx.textAlign = 'left';
     ctx.fillText('MCI · 14 patients', ix + 12, iy + 22);
 
@@ -197,14 +197,14 @@
       if (u.done || !u.cum) continue;
       const pts = u.route.map(P);
       const p = along(pts, u.cum, u.s);
-      const col = u.tag === 'R' ? C.alert : u.tag === 'Y' ? C.copper : TRIAGE_GREEN;
+      const col = u.tag === 'R' ? C.alert : u.tag === 'Y' ? C.accent : TRIAGE_GREEN;
       ctx.fillStyle = rgba(col, 0.2); ctx.beginPath(); ctx.arc(p[0], p[1], 7, 0, 6.283); ctx.fill();
       ctx.fillStyle = col; ctx.beginPath(); ctx.arc(p[0], p[1], 3, 0, 6.283); ctx.fill();
     }
 
     // legend
     ctx.textAlign = 'left'; ctx.font = '10px "IBM Plex Mono", monospace';
-    [['red tag', C.alert], ['yellow', C.copper], ['green', TRIAGE_GREEN]].forEach(([k, c], i) => {
+    [['red tag', C.alert], ['yellow', C.accent], ['green', TRIAGE_GREEN]].forEach(([k, c], i) => {
       const x = 12 + i * 74, y = h - 14;
       ctx.fillStyle = c; ctx.beginPath(); ctx.arc(x + 3, y, 3, 0, 6.283); ctx.fill();
       ctx.fillStyle = C.fg3; ctx.fillText(k, x + 11, y + 1);
