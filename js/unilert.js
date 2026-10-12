@@ -32,6 +32,7 @@
     { at: 4.6, item: ['Comms', 'Notify receiving hospitals with ETAs'] },
   ];
   const CYCLE = 15;
+  const TRIAGE_GREEN = '#7fcf8e';   // START triage color, separate from the site palette
 
   let G = null, t = 0, units = [], sent = 0, used = [], bottleneck = false, planShown = 0, agentState = [];
 
@@ -196,14 +197,14 @@
       if (u.done || !u.cum) continue;
       const pts = u.route.map(P);
       const p = along(pts, u.cum, u.s);
-      const col = u.tag === 'R' ? C.alert : u.tag === 'Y' ? C.copper : C.signal;
+      const col = u.tag === 'R' ? C.alert : u.tag === 'Y' ? C.copper : TRIAGE_GREEN;
       ctx.fillStyle = rgba(col, 0.2); ctx.beginPath(); ctx.arc(p[0], p[1], 7, 0, 6.283); ctx.fill();
       ctx.fillStyle = col; ctx.beginPath(); ctx.arc(p[0], p[1], 3, 0, 6.283); ctx.fill();
     }
 
     // legend
     ctx.textAlign = 'left'; ctx.font = '10px "IBM Plex Mono", monospace';
-    [['red tag', C.alert], ['yellow', C.copper], ['green', C.signal]].forEach(([k, c], i) => {
+    [['red tag', C.alert], ['yellow', C.copper], ['green', TRIAGE_GREEN]].forEach(([k, c], i) => {
       const x = 12 + i * 74, y = h - 14;
       ctx.fillStyle = c; ctx.beginPath(); ctx.arc(x + 3, y, 3, 0, 6.283); ctx.fill();
       ctx.fillStyle = C.fg3; ctx.fillText(k, x + 11, y + 1);

@@ -2,13 +2,15 @@
 
 Personal project site. Plain HTML, CSS and JavaScript with no build step and no dependencies (fonts come from Google Fonts).
 
-The page is laid out as a five-stage pipeline: **IF** (intro), **ID** (about, coursework, toolchain), **EX** (projects), **MEM** (experience) and **WB** (contact). The nav tracks which stage you're in.
+The page is laid out as a five-stage pipeline: **IF** (intro), **ID** (about, coursework, toolchain), **EX** (projects), **MEM** (experience and leadership) and **WB** (contact). The nav tracks which stage you're in. **I/O** sits off the pipeline and links to `graphs.html`, the Desmos graphs page.
 
 ## Files
 
 | Path | What it is |
 |---|---|
-| `index.html` | All page content. Edit text here. |
+| `index.html` | All main-page content. Edit text here. |
+| `graphs.html` | Desmos graphs page. Each graph shows a preview and loads the live embed on click. |
+| `img/desmos/` | Graph previews, rendered from each graph with the Desmos calculator's screenshot function. |
 | `css/site.css` | Styles. Color and type tokens are at the top. |
 | `js/util.js` | Shared canvas helpers (sizing, visibility-aware animation loop, RNG). |
 | `js/hero.js` | Procedurally generated die, rendered with a WebGL thin-film shader and lit by the cursor. |
@@ -17,7 +19,8 @@ The page is laid out as a five-stage pipeline: **IF** (intro), **ID** (about, co
 | `js/unilert.js` | Illustrated Unilert scenario (agents, flood-zone reroute, capacity bottleneck). |
 | `js/trace.js` | Desmos Trace merge rule on a quadtree, with a split-view compare. |
 | `js/rowhammer.js` | Simplified RowHammer model with a tagged-counter detector. |
-| `js/main.js` | Nav state, scroll reveals, decoder panel, copy-email button. |
+| `js/main.js` | Nav state, scroll reveals, decoder panel, click-to-load Desmos embeds, copy-email button. |
+| `js/cursor.js` | Probe cursor with a short PCB-style trail (mouse only; off for touch and reduced motion). |
 | `Michael-Tony-Resume.pdf` | Linked from the nav and contact section. It includes your phone number. |
 
 ## Run locally

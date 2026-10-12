@@ -15,6 +15,7 @@
     nav.classList.toggle('is-scrolled', y > 24);
     const max = doc.scrollHeight - vh;
     bar.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
+    if (!sections.length) return;
     let idx = 0;
     sections.forEach((s, i) => { if (s.getBoundingClientRect().top < vh * 0.4) idx = i; });
     if (max - y < 4) idx = sections.length - 1;
@@ -70,6 +71,17 @@
       g.setAttribute('aria-pressed', String(on));
       document.getElementById(g.dataset.panel).hidden = !on;
     });
+  }));
+
+  /* Desmos embeds load only when asked */
+  document.querySelectorAll('[data-embed]').forEach((btn) => btn.addEventListener('click', () => {
+    const box = btn.closest('.embed');
+    const f = document.createElement('iframe');
+    f.src = btn.dataset.embed;
+    f.title = btn.dataset.title || 'Desmos graph';
+    f.setAttribute('allowfullscreen', '');
+    box.replaceChildren(f);
+    box.classList.add('is-live');
   }));
 
   /* copy email */

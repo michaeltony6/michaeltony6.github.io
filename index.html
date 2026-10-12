@@ -28,6 +28,7 @@
     <a href="#execute" data-stage="2"><b>EX</b><span>Projects</span></a>
     <a href="#memory" data-stage="3"><b>MEM</b><span>Experience</span></a>
     <a href="#writeback" data-stage="4"><b>WB</b><span>Contact</span></a>
+    <a href="graphs.html" class="io" title="Desmos graphs, on their own page"><b>I/O</b><span>Graphs</span></a>
   </nav>
   <a class="nav-cta" href="Michael-Tony-Resume.pdf" target="_blank" rel="noopener">Résumé</a>
   <div class="nav-progress" aria-hidden="true"><i id="nav-progress"></i></div>
@@ -231,8 +232,10 @@
         <p>A modular humanoid simulation and control stack built on MuJoCo, MuJoCo-Warp and Isaac Lab, with articulated-body dynamics, actuator models, reinforcement-learning environments and GPU-parallel simulation.</p>
         <p>On the hardware side, a 3-DOF robotic leg: analytical forward and inverse kinematics, joint-space PD control with real-time feedback, and Jacobian-transpose mapping from task-space forces to joint torques (τ = JᵀF). The sim-to-deployment layer handles position, velocity and torque control, torque saturation and asynchronous stepping.</p>
         <ul class="stack"><li>Python</li><li>C++</li><li>MuJoCo</li><li>MuJoCo-Warp</li><li>Isaac Lab</li><li>PyTorch</li><li>RSL-RL</li></ul>
+        <div class="links"><a class="link" href="#pendulum">Double pendulum in Desmos ↓</a><a class="link" href="graphs.html">All my Desmos graphs →</a></div>
       </div>
 
+      <div class="bench-stack">
       <div class="bench leg reveal" id="leg-demo">
         <div class="bench-head"><span><span class="path">control/</span>leg_3dof · analytic IK + PD</span><span class="led on" id="leg-led">Walking</span></div>
         <canvas class="leg-canvas" id="leg-canvas" role="img" aria-label="A three-degree-of-freedom robot leg tracking a foot trajectory with inverse kinematics and PD control. Move the pointer over it to set the foot target."></canvas>
@@ -256,6 +259,18 @@
           <label class="field" for="leg-kd">Kd <input type="range" id="leg-kd" min="0" max="120" value="45"><output id="leg-kd-v">4.5</output></label>
         </div>
         <div class="bench-foot">Torque = Kp·error − Kd·velocity + JᵀF, clamped at ±30 N·m. During stance the foot carries a 120 N load, so part of each motor’s budget goes to holding it up. Drop Kd to zero to see it ring; push Kp up to hit saturation.</div>
+      </div>
+
+      <div class="bench reveal" id="pendulum">
+        <div class="bench-head"><span><span class="path">desmos/</span>double_pendulum · b1f0ac3a99</span><span class="led on">46 expressions</span></div>
+        <div class="embed wide">
+          <img src="img/desmos/b1f0ac3a99.png" alt="Double Pendulum graph in Desmos: two linked arms with a red trail behind the lower bob." width="400" height="400" loading="lazy">
+          <button class="ctl embed-go" type="button" data-embed="https://www.desmos.com/calculator/b1f0ac3a99?embed" data-title="Double Pendulum, an interactive Desmos graph">Run the live graph</button>
+        </div>
+        <div class="bench-foot">The same kind of problem, built by hand in Desmos: the double-pendulum equations of motion, stepped forward by an action ticker with sliders for arm lengths, masses, gravity and starting angles.
+          <div class="links"><a class="link" href="https://www.desmos.com/calculator/b1f0ac3a99" target="_blank" rel="noopener">Open in Desmos ↗</a><a class="link" href="graphs.html">More graphs →</a></div>
+        </div>
+      </div>
       </div>
     </article>
 
@@ -318,6 +333,7 @@
         <div class="links">
           <a class="link" href="https://michaeltony6.github.io/desmos-trace/" target="_blank" rel="noopener">Open the app ↗</a>
           <a class="link" href="https://github.com/michaeltony6/desmos-trace" target="_blank" rel="noopener">Source on GitHub ↗</a>
+          <a class="link" href="graphs.html">Graphs I drew by hand →</a>
         </div>
       </div>
 
@@ -515,6 +531,35 @@
           </ul>
         </div>
       </article>
+
+      <!-- Leadership -->
+      <article class="role" id="leadership">
+        <div class="role-head reveal">
+          <p class="role-when">Rutgers student organizations</p>
+          <h3>Leadership</h3>
+          <p class="role-org">Executive board roles</p>
+        </div>
+        <div class="role-body reveal">
+          <div class="lead-grid">
+            <div class="lead-card">
+              <p class="lead-term">Current</p>
+              <h4>President</h4>
+              <p class="lead-org">Quantum Computing Club</p>
+            </div>
+            <div class="lead-card">
+              <p class="lead-term">2025–26 · 2026–27</p>
+              <h4>Treasurer</h4>
+              <p class="lead-org">Orthodox Christian Campus Ministries (OCCM)</p>
+              <p class="lead-note">Second term</p>
+            </div>
+            <div class="lead-card">
+              <p class="lead-term">Current</p>
+              <h4>Event Coordinator</h4>
+              <p class="lead-org">Quant Finance Club</p>
+            </div>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -559,6 +604,7 @@
   <div class="foot wrap">
     <span>© 2026 Michael Tony · New York City area</span>
     <span>Plain HTML, canvas and WebGL. No frameworks.</span>
+    <a href="graphs.html">Desmos graphs →</a>
     <a href="#fetch">Back to top ↑</a>
   </div>
 </footer>
@@ -571,5 +617,6 @@
 <script src="js/trace.js"></script>
 <script src="js/rowhammer.js"></script>
 <script src="js/main.js"></script>
+<script src="js/cursor.js"></script>
 </body>
 </html>
