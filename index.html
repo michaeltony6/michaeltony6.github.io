@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Michael Tony</title>
+<meta name="description" content="Michael Tony studies Electrical Engineering, Computer Science and Mathematics at Rutgers–New Brunswick. Hardware security, GPU inference, CPU design and robotics projects.">
+<meta name="theme-color" content="#07090d">
+<meta property="og:title" content="Michael Tony">
+<meta property="og:description" content="EE + CS + Math at Rutgers–New Brunswick. Hardware, systems, ML and robotics projects, running live in the browser.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2307090d'/%3E%3Cpath d='M4 11h4M4 16h4M4 21h4M24 11h4M24 16h4M24 21h4M11 4v4M16 4v4M21 4v4M11 24v4M16 24v4M21 24v4' stroke='%23e49c5c' stroke-width='2'/%3E%3Crect x='8.5' y='8.5' width='15' height='15' rx='1.5' fill='none' stroke='%23e49c5c' stroke-width='2'/%3E%3Crect x='13' y='13' width='6' height='6' fill='%23e49c5c'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400..700&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#fetch" aria-label="Michael Tony, back to top">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 11h4M4 16h4M4 21h4M24 11h4M24 16h4M24 21h4M11 4v4M16 4v4M21 4v4M11 24v4M16 24v4M21 24v4" stroke="#e49c5c" stroke-width="2"/><rect x="8.5" y="8.5" width="15" height="15" rx="1.5" fill="none" stroke="#e49c5c" stroke-width="2"/><rect x="13" y="13" width="6" height="6" fill="#e49c5c"/></svg>
+    <span class="brand-name">Michael Tony</span>
+  </a>
+  <nav class="stages" aria-label="Sections">
+    <a href="#fetch" data-stage="0" class="is-active" aria-current="true"><b>IF</b><span>Intro</span></a>
+    <a href="#decode" data-stage="1"><b>ID</b><span>About</span></a>
+    <a href="#execute" data-stage="2"><b>EX</b><span>Projects</span></a>
+    <a href="#memory" data-stage="3"><b>MEM</b><span>Experience</span></a>
+    <a href="#writeback" data-stage="4"><b>WB</b><span>Contact</span></a>
+  </nav>
+  <a class="nav-cta" href="Michael-Tony-Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+  <div class="nav-progress" aria-hidden="true"><i id="nav-progress"></i></div>
+</header>
+
+<main id="main">
+
+<!-- ════════════════ IF · Fetch ════════════════ -->
+<section class="hero" id="fetch" data-stage="0" aria-label="Introduction">
+  <canvas class="die" id="die" aria-hidden="true"></canvas>
+  <canvas class="die-pulses" id="die-pulses" aria-hidden="true"></canvas>
+  <div class="hero-scrim" aria-hidden="true"></div>
+
+  <div class="hud hud-tl" aria-hidden="true"><span>Die MT-2028</span><span id="hud-seed">Seed 0x0000</span></div>
+  <div class="hud hud-tr" aria-hidden="true"><span class="reticle">⌖</span><span>X <b id="hud-x">0.500</b></span><span>Y <b id="hud-y">0.500</b></span></div>
+
+  <div class="hero-inner">
+    <div>
+      <p class="eyebrow">Electrical Engineering<span class="sep">/</span>Computer Science<span class="sep">/</span>Mathematics</p>
+      <h1 class="hero-name" id="hero-name" aria-label="Michael Tony"><span aria-hidden="true">Michael</span><span aria-hidden="true">Tony</span></h1>
+      <p class="hero-lede">I build systems from the hardware up: <strong>RowHammer detection</strong> in SystemVerilog, <strong>faster LLM inference</strong> in CUDA, a <strong>CPU I designed</strong> from the ISA to a five-stage pipeline, and <strong>control for legged robots</strong>.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#execute">See the projects <span class="arrow" aria-hidden="true">↓</span></a>
+        <a class="btn" href="Michael-Tony-Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+      </div>
+      <p class="hero-status"><i aria-hidden="true"></i>Rutgers–New Brunswick, Class of 2028 · Looking for Summer 2027 internships</p>
+    </div>
+    <dl class="hero-spec">
+      <div><dt>Majors</dt><dd>3</dd></div>
+      <div><dt>Credits</dt><dd>169</dd></div>
+      <div><dt>HackPrinceton</dt><dd>1st<small>place</small></dd></div>
+      <div><dt>Mem. requests sim’d</dt><dd>18B</dd></div>
+    </dl>
+  </div>
+  <p class="hero-caption">A procedurally generated die, different on every visit. Move your cursor to light it.</p>
+</section>
+
+<!-- ════════════════ ID · Decode ════════════════ -->
+<section class="section" id="decode" data-stage="1">
+  <div class="wrap">
+    <header class="section-head">
+      <p class="stage-tag"><b>ID</b> Decode · About<span class="rule" aria-hidden="true"></span></p>
+      <h2 class="reveal">Three majors, <em>one stack.</em></h2>
+    </header>
+
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <p class="lead">I’m a third-year at Rutgers–New Brunswick earning a B.S. in Electrical Engineering and B.A.s in Computer Science and Mathematics, finishing in May 2028.</p>
+        <p>I like problems that cross layers. A DRAM attack that needs a detector built into hardware. A language model that stays slow until you profile its GPU kernels. A robot leg where the kinematics have to hold up on real motors. Most of my projects start in one layer and end up touching three.</p>
+        <p>Right now I do research at Rutgers on local LLM inference, document rendering and speech synthesis. I also tutor calculus, data structures and physics at the Rutgers Learning Center.</p>
+      </div>
+
+      <div class="bench decoder reveal" id="decoder">
+        <div class="bench-head"><span><span class="path">isa/</span>decode michael.tony</span><span class="led on">Decoded</span></div>
+        <div class="dec-word" role="group" aria-label="Instruction fields. Pick one to see its coursework.">
+          <button class="dec-field" type="button" aria-pressed="true" aria-controls="dec-ee" data-panel="dec-ee">
+            <span class="dec-range"><span>31</span><span>26</span></span>
+            <span class="dec-bits" aria-hidden="true"><i>0</i><i>0</i><i>0</i><i class="one">1</i><i>0</i><i class="one">1</i></span>
+            <span class="dec-name">opcode<b>EE</b></span>
+          </button>
+          <button class="dec-field" type="button" aria-pressed="false" aria-controls="dec-cs" data-panel="dec-cs">
+            <span class="dec-range"><span>25</span><span>21</span></span>
+            <span class="dec-bits" aria-hidden="true"><i>0</i><i>0</i><i>0</i><i class="one">1</i><i class="one">1</i></span>
+            <span class="dec-name">rs<b>CS</b></span>
+          </button>
+          <button class="dec-field" type="button" aria-pressed="false" aria-controls="dec-math" data-panel="dec-math">
+            <span class="dec-range"><span>20</span><span>16</span></span>
+            <span class="dec-bits" aria-hidden="true"><i>0</i><i class="one">1</i><i class="one">1</i><i>0</i><i class="one">1</i></span>
+            <span class="dec-name">rt<b>Math</b></span>
+          </button>
+          <button class="dec-field" type="button" aria-pressed="false" aria-controls="dec-imm" data-panel="dec-imm">
+            <span class="dec-range"><span>15</span><span>0</span></span>
+            <span class="dec-bits" aria-hidden="true"><i>0</i><i>0</i><i>0</i><i>0</i><i>0</i><i class="one">1</i><i class="one">1</i><i class="one">1</i><i class="one">1</i><i class="one">1</i><i class="one">1</i><i>0</i><i class="one">1</i><i class="one">1</i><i>0</i><i>0</i></span>
+            <span class="dec-name">imm<b>2028</b></span>
+          </button>
+        </div>
+        <p class="dec-hex">word <b>0x146D07EC</b> · opcode 5 (E), rs 3 (C), rt 13 (M), imm = graduation year</p>
+
+        <div class="dec-panel" id="dec-ee">
+          <h4>Electrical Engineering<span>B.S.</span></h4>
+          <ul class="course-list">
+            <li>Computer Architecture</li><li>Computer Systems</li><li>Digital Signal Processing</li><li>Microelectronic Processing</li><li>Digital Electronics</li><li>Electronic Devices</li><li>Linear Systems &amp; Signals</li><li>Circuits I &amp; II</li><li>Digital Logic Design</li>
+          </ul>
+        </div>
+        <div class="dec-panel" id="dec-cs" hidden>
+          <h4>Computer Science<span>B.A.</span></h4>
+          <ul class="course-list">
+            <li>Computational Robotics</li><li>Machine Learning</li><li>Data Science</li><li>Computer Algorithms</li><li>Data Structures</li><li>MATLAB</li>
+          </ul>
+        </div>
+        <div class="dec-panel" id="dec-math" hidden>
+          <h4>Mathematics<span>B.A.</span></h4>
+          <ul class="course-list">
+            <li>Real Analysis</li><li>Calculus V (PDE)</li><li>Calculus IV (ODE)</li><li>Linear Algebra</li><li>Probability</li><li>Mathematical Reasoning (Proofs)</li>
+          </ul>
+        </div>
+        <div class="dec-panel" id="dec-imm" hidden>
+          <h4>Rutgers–New Brunswick<span>2024 → 2028</span></h4>
+          <p>Rutgers, The State University of New Jersey. September 2024 to May 2028, with 169 credits earned and a 3.93 GPA.</p>
+          <ul class="course-list">
+            <li>Physics IIA (E&amp;M) &amp; Lab</li><li>Statics</li><li>Engineering Economics</li><li>Micro- &amp; Macroeconomics</li><li>Logic</li><li>Plato &amp; Aristotle</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="toolchain reveal">
+      <div class="toolchain-head"><h3>Toolchain</h3><p>what I reach for</p></div>
+      <div class="tool-grid">
+        <div class="tool-col">
+          <h4>Languages</h4>
+          <ul class="tool-list"><li>C</li><li>C++</li><li>Python</li><li>SystemVerilog / Verilog</li><li>Assembly (RISC-V, x86, x64)</li><li>Java</li><li>MATLAB</li><li>JavaScript / TypeScript</li><li>SQL</li><li>Shell</li><li>LaTeX</li></ul>
+        </div>
+        <div class="tool-col">
+          <h4>ML &amp; Robotics</h4>
+          <ul class="tool-list"><li>PyTorch</li><li>TensorFlow</li><li>NumPy</li><li>MuJoCo</li><li>MuJoCo-Warp</li><li>Isaac Lab</li><li>RSL-RL</li><li>Simulink</li><li>Gaussian Processes</li><li>SVMs</li><li>Decision Trees</li></ul>
+        </div>
+        <div class="tool-col">
+          <h4>Systems &amp; Tools</h4>
+          <ul class="tool-list"><li>CUDA</li><li>Vulkan</li><li>Linux</li><li>Tree-sitter</li><li>Xilinx Vivado</li><li>Icarus Verilog</li><li>CMake</li><li>Git</li><li>GitHub Actions</li><li>KiCad</li><li>FastAPI</li><li>Next.js</li><li>SolidWorks</li><li>Arduino</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ EX · Execute ════════════════ -->
+<section class="section" id="execute" data-stage="2">
+  <div class="wrap">
+    <header class="section-head">
+      <p class="stage-tag"><b>EX</b> Execute · Projects<span class="rule" aria-hidden="true"></span></p>
+      <h2 class="reveal">Things I’ve built, <em>running live.</em></h2>
+      <p class="section-sub reveal">Each panel runs a small model of the project in your browser. Press things.</p>
+    </header>
+
+    <!-- CPU -->
+    <article class="project" id="cpu">
+      <div class="project-copy reveal">
+        <p class="kicker">Computer architecture</p>
+        <h3>Custom RISC CPU &amp; Pipelined Processor</h3>
+        <p>My own RISC-style instruction set with the full toolchain around it. A C simulator runs fetch-decode-execute with a two-pass assembler, a disassembler, tracing, profiling and runtime fault detection. Two Verilog cores implement the same ISA: a single-cycle core and a five-stage pipeline with forwarding, load-use stalls, branch flushes and CPI reporting.</p>
+        <p>Every program is checked against the C simulator as a golden model, and a browser debugger shows registers, memory and the pipeline cycle by cycle.</p>
+        <ul class="facts">
+          <li><span>ISA</span><span>24 instructions, fixed width</span></li>
+          <li><span>State</span><span>R0–R7, 256-word memory</span></li>
+          <li><span>Cores</span><span>Single-cycle + 5-stage pipeline</span></li>
+          <li><span>Verification</span><span>C vs. Verilog golden-model tests</span></li>
+        </ul>
+        <ul class="stack"><li>C</li><li>Assembly</li><li>Verilog</li><li>Icarus Verilog</li><li>Shell</li><li>GitHub Actions</li></ul>
+        <div class="links"><a class="link" href="https://github.com/michaeltony6/CPU-Sim" target="_blank" rel="noopener">Source on GitHub ↗</a></div>
+      </div>
+
+      <div class="bench cpu reveal" id="cpu-demo">
+        <div class="bench-head"><span><span class="path">cpu/</span>pipeline · sum.asm</span><span class="led on" id="cpu-led">Running</span></div>
+        <canvas class="cpu-canvas" id="cpu-canvas" role="img" aria-label="Animated five-stage pipeline (IF, ID, EX, MEM, WB) running the program listed below, with a cycle-by-cycle pipeline diagram."></canvas>
+        <div class="cpu-side">
+          <ol class="cpu-prog" id="cpu-prog" aria-label="Program">
+            <li data-idx="0"><span class="addr">00</span><span class="lbl"></span><span>MOVI  R1, 0</span><span class="stg"></span></li>
+            <li data-idx="1"><span class="addr">01</span><span class="lbl"></span><span>MOVI  R2, 1</span><span class="stg"></span></li>
+            <li data-idx="2"><span class="addr">02</span><span class="lbl"></span><span>MOVI  R3, 5</span><span class="stg"></span></li>
+            <li data-idx="3"><span class="addr">03</span><span class="lbl">loop:</span><span>ADD   R1, R1, R2</span><span class="stg"></span></li>
+            <li data-idx="4"><span class="addr">04</span><span class="lbl"></span><span>ADDI  R2, R2, 1</span><span class="stg"></span></li>
+            <li data-idx="5"><span class="addr">05</span><span class="lbl"></span><span>BNE   R2, R3, loop</span><span class="stg"></span></li>
+            <li data-idx="6"><span class="addr">06</span><span class="lbl"></span><span>STORE R1, 255</span><span class="stg"></span></li>
+            <li data-idx="7"><span class="addr">07</span><span class="lbl"></span><span>LOAD  R4, 255</span><span class="stg"></span></li>
+            <li data-idx="8"><span class="addr">08</span><span class="lbl"></span><span>ADD   R5, R4, R4</span><span class="stg"></span></li>
+            <li data-idx="9"><span class="addr">09</span><span class="lbl"></span><span>HALT</span><span class="stg"></span></li>
+          </ol>
+          <div class="cpu-state">
+            <div class="regs" id="cpu-regs" aria-label="Register file">
+              <div class="reg"><span>R0</span><b>0</b></div><div class="reg"><span>R1</span><b>0</b></div><div class="reg"><span>R2</span><b>0</b></div><div class="reg"><span>R3</span><b>0</b></div>
+              <div class="reg"><span>R4</span><b>0</b></div><div class="reg"><span>R5</span><b>0</b></div><div class="reg"><span>R6</span><b>0</b></div><div class="reg"><span>R7</span><b>256</b></div>
+            </div>
+            <dl class="stats">
+              <div><dt>Cycle</dt><dd id="cpu-cycle">0</dd></div>
+              <div><dt>Retired</dt><dd id="cpu-retired">0</dd></div>
+              <div><dt>CPI</dt><dd id="cpu-cpi" class="accent">–</dd></div>
+              <div><dt>Stalls</dt><dd id="cpu-stalls">0</dd></div>
+              <div><dt>Flushes</dt><dd id="cpu-flushes">0</dd></div>
+              <div><dt>MEM[255]</dt><dd id="cpu-out">–</dd></div>
+            </dl>
+          </div>
+        </div>
+        <div class="bench-ctl">
+          <button class="ctl" type="button" id="cpu-play" aria-pressed="true">Pause</button>
+          <button class="ctl" type="button" id="cpu-step">Step</button>
+          <button class="ctl" type="button" id="cpu-reset">Reset</button>
+          <label class="switch"><input type="checkbox" id="cpu-fwd" checked><span class="track" aria-hidden="true"></span>Forwarding</label>
+          <span class="spacer"></span>
+          <label class="field" for="cpu-speed">Speed <input type="range" id="cpu-speed" min="1" max="8" value="3"></label>
+        </div>
+        <div class="bench-foot">Sums 1 through 4 in the CPU’s own assembly, then writes the result to memory-mapped output at MEM[255]. Branches resolve in EX, so each taken branch flushes two instructions. Turn forwarding off and watch the stalls and CPI climb.</div>
+      </div>
+    </article>
+
+    <!-- Rutgers Dynamics -->
+    <article class="project" id="robotics">
+      <div class="project-copy reveal">
+        <p class="kicker">Robotics · Simulation &amp; control</p>
+        <h3>Rutgers Dynamics</h3>
+        <p>A modular humanoid simulation and control stack built on MuJoCo, MuJoCo-Warp and Isaac Lab, with articulated-body dynamics, actuator models, reinforcement-learning environments and GPU-parallel simulation.</p>
+        <p>On the hardware side, a 3-DOF robotic leg: analytical forward and inverse kinematics, joint-space PD control with real-time feedback, and Jacobian-transpose mapping from task-space forces to joint torques (τ = JᵀF). The sim-to-deployment layer handles position, velocity and torque control, torque saturation and asynchronous stepping.</p>
+        <ul class="stack"><li>Python</li><li>C++</li><li>MuJoCo</li><li>MuJoCo-Warp</li><li>Isaac Lab</li><li>PyTorch</li><li>RSL-RL</li></ul>
+      </div>
+
+      <div class="bench leg reveal" id="leg-demo">
+        <div class="bench-head"><span><span class="path">control/</span>leg_3dof · analytic IK + PD</span><span class="led on" id="leg-led">Walking</span></div>
+        <canvas class="leg-canvas" id="leg-canvas" role="img" aria-label="A three-degree-of-freedom robot leg tracking a foot trajectory with inverse kinematics and PD control. Move the pointer over it to set the foot target."></canvas>
+        <dl class="leg-readout">
+          <div><dt>Hip pitch</dt><dd id="leg-hip">0.0°</dd></div>
+          <div><dt>Knee</dt><dd id="leg-knee">0.0°</dd></div>
+          <div><dt>Hip roll</dt><dd id="leg-roll">0.0°</dd></div>
+          <div><dt>Foot error</dt><dd id="leg-err">0 mm</dd></div>
+        </dl>
+        <div class="torques" aria-label="Commanded joint torques">
+          <div class="torque" id="tau-hip"><span>τ hip</span><span class="bar"><i></i></span><span class="val">0.0 N·m</span></div>
+          <div class="torque" id="tau-knee"><span>τ knee</span><span class="bar"><i></i></span><span class="val">0.0 N·m</span></div>
+        </div>
+        <div class="bench-ctl">
+          <div class="ctl-group" role="group" aria-label="Foot target">
+            <button class="ctl" type="button" id="leg-walk" aria-pressed="true">Walk</button>
+            <button class="ctl" type="button" id="leg-follow" aria-pressed="false">Follow pointer</button>
+          </div>
+          <span class="spacer"></span>
+          <label class="field" for="leg-kp">Kp <input type="range" id="leg-kp" min="20" max="400" value="140"><output id="leg-kp-v">140</output></label>
+          <label class="field" for="leg-kd">Kd <input type="range" id="leg-kd" min="0" max="120" value="45"><output id="leg-kd-v">4.5</output></label>
+        </div>
+        <div class="bench-foot">Torque = Kp·error − Kd·velocity + JᵀF, clamped at ±30 N·m. During stance the foot carries a 120 N load, so part of each motor’s budget goes to holding it up. Drop Kd to zero to see it ring; push Kp up to hit saturation.</div>
+      </div>
+    </article>
+
+    <!-- Unilert -->
+    <article class="project" id="unilert">
+      <div class="project-copy reveal">
+        <p class="kicker">Hackathon · Emergency medical ops</p>
+        <h3>Unilert</h3>
+        <span class="award"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 11.3l-3.8 2 .7-4.3-3.1-3 4.3-.6z" fill="currentColor"/></svg>1st Place · Dedalus Track · HackPrinceton</span>
+        <p>Real-time decision support for EMS supervisors, incident commanders and hospital coordination leads. Unilert turns raw incident reports into patient routing, bottleneck alerts and actions owned by specific roles.</p>
+        <p>A deterministic ICS engine produces a safe plan right away. Four K2 Think V2 agents running on Dedalus Machines then enrich it in parallel with NWS and USGS hazard data, OSRM routing and hospital metadata. If an agent fails, the deterministic plan still stands. Built with Ryan Jensen.</p>
+        <ul class="facts">
+          <li><span>Agents</span><span>4, running in parallel</span></li>
+          <li><span>Data</span><span>NWS, USGS, OSRM, hospitals</span></li>
+          <li><span>Tests</span><span>38 / 38 passing</span></li>
+        </ul>
+        <ul class="stack"><li>Python</li><li>FastAPI</li><li>TypeScript</li><li>Next.js</li><li>Dedalus Machines</li><li>K2 Think V2</li><li>OSRM</li></ul>
+        <div class="links"><a class="link" href="https://github.com/RyanAJensen/Unilert" target="_blank" rel="noopener">Source on GitHub ↗</a></div>
+      </div>
+
+      <div class="bench reveal" id="un-demo">
+        <div class="bench-head"><span><span class="path">ics/</span>incident · example scenario</span><span class="led on" id="un-led">Live</span></div>
+        <div class="un-body">
+          <div class="un-map"><canvas class="un-canvas" id="un-canvas" role="img" aria-label="Animated map: ambulances route patients from an incident to three hospitals while avoiding a flood zone."></canvas></div>
+          <div class="un-side">
+            <h5>Agents</h5>
+            <div class="agents" id="un-agents">
+              <div class="agent"><span class="name">Incident parser</span><span class="pill">queued</span><span class="prog"><i></i></span></div>
+              <div class="agent"><span class="name">Risk assessor</span><span class="pill">queued</span><span class="prog"><i></i></span></div>
+              <div class="agent"><span class="name">Action planner</span><span class="pill">queued</span><span class="prog"><i></i></span></div>
+              <div class="agent"><span class="name">Communications</span><span class="pill">queued</span><span class="prog"><i></i></span></div>
+            </div>
+            <div class="plan">
+              <p class="plan-v mono" id="un-plan-v">Plan <b>v1</b> · deterministic</p>
+              <ol id="un-plan">
+                <li><span>EMS</span>Stage 4 ALS units at the north lot</li>
+                <li><span>Triage</span>Open START triage at the main entrance</li>
+                <li><span>Transport</span>Send red-tag patients to the trauma center</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div class="bench-foot">An illustrative scenario, not live data. Routes avoid the flood zone, and when a hospital nears capacity a bottleneck alert sends the next patients elsewhere.</div>
+      </div>
+    </article>
+
+    <!-- Desmos Trace -->
+    <article class="project" id="trace">
+      <div class="project-copy reveal">
+        <p class="kicker">Web tool · Image processing</p>
+        <h3>Desmos Trace</h3>
+        <p>Turns any image into a full-color, editable Desmos polygon list, entirely in the browser. No source image is embedded in the graph.</p>
+        <p>Adaptive mode splits the image into rectangles and merges a block only when every RGB channel stays within tolerance of the block’s rounded mean. Exact mode run-length encodes pixels so nothing is lost, and a compare view measures RMSE and maximum error against the decoded image.</p>
+        <ul class="facts">
+          <li><span>Modes</span><span>High fidelity, balanced, pixel exact, custom</span></li>
+          <li><span>Max size</span><span>2,048 px on the longest edge</span></li>
+          <li><span>Runs</span><span>Locally, nothing uploaded</span></li>
+        </ul>
+        <ul class="stack"><li>JavaScript</li><li>Canvas</li><li>Desmos API</li></ul>
+        <div class="links">
+          <a class="link" href="https://michaeltony6.github.io/desmos-trace/" target="_blank" rel="noopener">Open the app ↗</a>
+          <a class="link" href="https://github.com/michaeltony6/desmos-trace" target="_blank" rel="noopener">Source on GitHub ↗</a>
+        </div>
+      </div>
+
+      <div class="bench reveal" id="tr-demo">
+        <div class="bench-head"><span><span class="path">trace/</span>adaptive · 128 × 80 px</span><span class="led on">Ready</span></div>
+        <div class="tr-stage">
+          <canvas class="tr-canvas" id="tr-canvas" role="img" aria-label="Split view: the original picture on the left and its rectangle reconstruction on the right. Drag to move the split."></canvas>
+          <span class="tr-tag l">Original</span><span class="tr-tag r">Rectangles</span>
+        </div>
+        <dl class="tr-stats">
+          <div><dt>Rectangles</dt><dd id="tr-rects">0</dd></div>
+          <div><dt>vs. pixels</dt><dd id="tr-ratio">0%</dd></div>
+          <div><dt>Max error</dt><dd id="tr-err">0</dd></div>
+        </dl>
+        <div class="bench-ctl">
+          <div class="ctl-group" role="group" aria-label="Precision preset">
+            <button class="ctl" type="button" data-tol="0" aria-pressed="false">Exact</button>
+            <button class="ctl" type="button" data-tol="4" aria-pressed="false">High fidelity</button>
+            <button class="ctl" type="button" data-tol="16" aria-pressed="true">Balanced</button>
+          </div>
+          <span class="spacer"></span>
+          <label class="field" for="tr-tol">Tolerance <input type="range" id="tr-tol" min="0" max="48" value="16"><output id="tr-tol-v">16</output></label>
+          <label class="switch"><input type="checkbox" id="tr-edges" checked><span class="track" aria-hidden="true"></span>Edges</label>
+        </div>
+        <div class="bench-foot">The same merge rule on a quadtree split, over a picture drawn in code. Drag across the image to move the split.</div>
+      </div>
+    </article>
+
+    <!-- Wastewater -->
+    <article class="project" id="wastewater">
+      <div class="project-copy reveal">
+        <p class="kicker">Machine learning · Process data</p>
+        <h3>Wastewater Treatment Plant ML</h3>
+        <p>Gaussian process, SVM and decision-tree models in MATLAB that predict effluent properties for a treatment plant. Careful preprocessing mattered as much as the models: randomizing and normalizing 350K+ data points cut SVM prediction error by more than 80% and reduced overfitting.</p>
+        <ul class="stack"><li>MATLAB</li><li>Simulink</li><li>Excel</li></ul>
+      </div>
+      <div class="bench reveal">
+        <div class="bench-head"><span><span class="path">ml/</span>effluent · results</span><span class="led">Archived</span></div>
+        <table class="spec-table">
+          <tbody>
+            <tr><th scope="row">Models</th><td>Gaussian process, SVM, decision tree</td></tr>
+            <tr><th scope="row">Data</th><td>350K+ points, randomized and normalized</td></tr>
+            <tr><th scope="row">Prediction accuracy</th><td><b>+30%</b></td></tr>
+            <tr><th scope="row">SVM prediction error</th><td><b>−80%+</b> after preprocessing</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ════════════════ MEM · Memory ════════════════ -->
+<section class="section" id="memory" data-stage="3">
+  <div class="wrap">
+    <header class="section-head">
+      <p class="stage-tag"><b>MEM</b> Memory · Experience<span class="rule" aria-hidden="true"></span></p>
+      <h2 class="reveal">Research, teaching <em>&amp; work.</em></h2>
+    </header>
+
+    <div class="timeline">
+      <div class="axis-wrap" aria-hidden="true">
+        <div class="axis"><span style="left:0%">2022</span><span style="left:20%">2023</span><span style="left:40%">2024</span><span style="left:60%">2025</span><span style="left:80%">2026</span><span style="left:100%">2027</span></div>
+      </div>
+
+      <!-- KnowsyDev -->
+      <article class="role">
+        <div class="role-head reveal">
+          <p class="role-when">May 2026 – Present</p>
+          <h3>Undergraduate Research Assistant</h3>
+          <p class="role-org">KnowsyDev <span>· Rutgers University</span></p>
+        </div>
+        <div class="role-body reveal">
+          <div class="span now" aria-hidden="true"><i style="--s:86.67;--e:96.67"></i></div>
+          <div class="sub-block">
+            <h4>Local LLM inference</h4>
+            <p>Optimized Ollama-based inference in C++ and CUDA by profiling GPU kernels, memory transfers and parallel execution.</p>
+          </div>
+          <div class="bench">
+            <div class="bench-head"><span><span class="path">bench/</span>ollama · before vs. after</span><span class="led on">Profiled</span></div>
+            <div class="bars reveal">
+              <div class="bar-row"><span class="lbl">Token throughput<small>higher is better</small></span><span class="track"><span class="base"></span><span class="after" style="--v:162"></span></span><span class="delta">+62%</span></div>
+              <div class="bar-row"><span class="lbl">Time to first token<small>lower is better</small></span><span class="track"><span class="base"></span><span class="after" style="--v:66"></span></span><span class="delta">−34%</span></div>
+              <div class="bar-row"><span class="lbl">Peak VRAM<small>lower is better</small></span><span class="track"><span class="base"></span><span class="after" style="--v:82"></span></span><span class="delta">−18%</span></div>
+              <div class="bars-key"><span><i class="k-base"></i>baseline = 100</span><span><i class="k-after"></i>optimized</span></div>
+            </div>
+          </div>
+          <div class="sub-block">
+            <h4>Interactive-document toolchain</h4>
+            <p>A portable toolchain in C++. I defined the IDOC grammar with Tree-sitter and compiled parsed documents into a Vulkan rendering pipeline.</p>
+          </div>
+          <div class="chips">
+            <div class="chip"><b>28 ms</b><span>to parse a 10,000-line file</span></div>
+            <div class="chip"><b>&lt;1 ms</b><span>incremental updates</span></div>
+            <div class="chip"><b>60 FPS</b><span>sustained rendering</span></div>
+          </div>
+          <div class="sub-block">
+            <h4>Multi-speaker text-to-speech</h4>
+            <p>A shared-weight multi-speaker pipeline around the 100M-parameter MOSS-TTS-Nano model, benchmarked against Piper.</p>
+          </div>
+          <div class="chips">
+            <div class="chip"><b>10 voices</b><span>cloned from 10-second reference clips</span></div>
+            <div class="chip"><b>1 GB → 100 MB</b><span>deployment storage (−90%)</span></div>
+            <div class="chip"><b>70%</b><span>speaker similarity maintained</span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ECE RowHammer -->
+      <article class="role">
+        <div class="role-head reveal">
+          <p class="role-when">May – September 2026</p>
+          <h3>Undergraduate Research Assistant</h3>
+          <p class="role-org">ECE Department <span>· Rutgers University</span></p>
+        </div>
+        <div class="role-body reveal">
+          <div class="span" aria-hidden="true"><i style="--s:86.67;--e:95"></i></div>
+          <ul class="points">
+            <li>Designed a <strong>RowHammer detector inspired by branch predictors</strong> in C++, using tagged history tables and saturating counters. It caught <span class="num">100%</span> of evaluated attacks with <span class="num">zero</span> false negatives and a <span class="num">0.3%</span> false-positive rate.</li>
+            <li>Evaluated it across <span class="num">60</span> workloads and <span class="num">18 billion</span> memory requests: detection latency down <span class="num">42%</span>, metadata down <span class="num">68%</span>, and benign workloads slowed by only <span class="num">0.8%</span>.</li>
+            <li>Implemented the detector in SystemVerilog and synthesized it for FPGA at <span class="num">250 MHz</span>, using <span class="num">1,500</span> LUTs, or <span class="num">0.8%</span> of the device’s logic.</li>
+          </ul>
+
+          <div class="bench" id="rh-demo">
+            <div class="bench-head"><span><span class="path">dram/</span>bank 0 · tagged-table detector</span><span class="led on" id="rh-led">Benign traffic</span></div>
+            <div class="rh-body">
+              <div class="rh-map"><canvas class="rh-canvas" id="rh-canvas" role="img" aria-label="A DRAM bank of 24 rows. Rows flash when activated; an attacker hammers the two rows around a victim; the detector refreshes the victim before bits flip."></canvas></div>
+              <div class="rh-side">
+                <div class="rh-table" id="rh-table">
+                  <h5>History table · 8 entries</h5>
+                </div>
+                <dl class="rh-stats">
+                  <div><dt>Activations</dt><dd id="rh-acts">0</dd></div>
+                  <div><dt>Detections</dt><dd id="rh-det" class="good">0</dd></div>
+                  <div><dt>False alarms</dt><dd id="rh-fp">0</dd></div>
+                  <div><dt>Bit flips</dt><dd id="rh-flips">0</dd></div>
+                </dl>
+                <div class="rh-log"><h5>Event log</h5><ol id="rh-log"><li>Waiting for traffic…</li></ol></div>
+              </div>
+            </div>
+            <div class="bench-ctl">
+              <button class="ctl" type="button" id="rh-attack">Hammer a row</button>
+              <label class="switch"><input type="checkbox" id="rh-on" checked><span class="track" aria-hidden="true"></span>Detector</label>
+              <span class="spacer"></span>
+              <label class="field" for="rh-speed">Rate <input type="range" id="rh-speed" min="1" max="6" value="2"></label>
+            </div>
+            <div class="bench-foot">A simplified model for illustration. Each activation disturbs the neighboring rows; enough disturbance before a refresh flips bits. The detector counts activations per row in a small tagged table, ages the counters, and refreshes a row’s neighbors when its counter crosses the threshold. Switch the detector off and hammer a row.</div>
+          </div>
+
+          <div class="bench table-scroll">
+            <table class="datasheet">
+              <caption>Detector characteristics</caption>
+              <thead><tr><th scope="col">Parameter</th><th scope="col">Value</th><th scope="col">Conditions</th></tr></thead>
+              <tbody>
+                <tr><td>Attack detection</td><td>100%</td><td>All evaluated attacks</td></tr>
+                <tr><td>False negatives</td><td>0</td><td>All evaluated attacks</td></tr>
+                <tr><td>False-positive rate</td><td>0.3%</td><td>60 workloads</td></tr>
+                <tr><td>Detection latency</td><td>−42%</td><td>18B memory requests</td></tr>
+                <tr><td>Metadata storage</td><td>−68%</td><td>18B memory requests</td></tr>
+                <tr><td>Benign slowdown</td><td>0.8%</td><td>60 workloads</td></tr>
+                <tr><td>Clock</td><td>250 MHz</td><td>FPGA synthesis, SystemVerilog</td></tr>
+                <tr><td>Area</td><td>1,500 LUTs</td><td>0.8% of device logic</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </article>
+
+      <!-- Tutor -->
+      <article class="role">
+        <div class="role-head reveal">
+          <p class="role-when">January 2025 – Present</p>
+          <h3>Tutor</h3>
+          <p class="role-org">Rutgers University Learning Center</p>
+        </div>
+        <div class="role-body reveal">
+          <div class="span now" aria-hidden="true"><i style="--s:60;--e:96.67"></i></div>
+          <ul class="points">
+            <li>Tutored <span class="num">40+</span> students through OCCM in Calculus I, II and III, Intro to CS, Data Structures and Physics, with an average <span class="num">20%</span> grade improvement.</li>
+            <li>Gave math and physics support to <strong>hundreds of Rutgers student-athletes</strong>. The students I tutored kept a <span class="num">100%</span> course pass rate.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- J.D. Hayden -->
+      <article class="role">
+        <div class="role-head reveal">
+          <p class="role-when">July 2022 – August 2024</p>
+          <h3>Assistant Accountant</h3>
+          <p class="role-org">J.D. Hayden &amp; Co., CPAs <span>· Montvale, NJ</span></p>
+        </div>
+        <div class="role-body reveal">
+          <div class="span" aria-hidden="true"><i style="--s:10;--e:53.33"></i></div>
+          <ul class="points">
+            <li>Built the firm’s client-facing website with JavaScript, HTML/CSS and Google APIs. Online inquiries went up <span class="num">300%</span>.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ WB · Write-back ════════════════ -->
+<section class="section contact" id="writeback" data-stage="4">
+  <div class="wrap">
+    <header class="section-head">
+      <p class="stage-tag"><b>WB</b> Write-back · Contact<span class="rule" aria-hidden="true"></span></p>
+    </header>
+    <h2 class="contact-title reveal"><span>Write</span> <span class="o">back.</span></h2>
+    <div class="contact-grid">
+      <p class="reveal">I’m looking for Summer 2027 internships in hardware, systems and quantitative roles. Email is the fastest way to reach me.</p>
+      <div class="contact-rows reveal">
+        <div class="contact-row">
+          <span class="k">Email</span>
+          <span class="v" id="email-text">mptony6@gmail.com</span>
+          <button class="ctl" type="button" id="copy-email" data-copy="mptony6@gmail.com">Copy</button>
+        </div>
+        <div class="contact-row">
+          <span class="k">LinkedIn</span>
+          <a class="v" href="https://www.linkedin.com/in/michael-tony" target="_blank" rel="noopener">linkedin.com/in/michael-tony</a>
+          <a class="go" href="https://www.linkedin.com/in/michael-tony" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">↗</a>
+        </div>
+        <div class="contact-row">
+          <span class="k">GitHub</span>
+          <a class="v" href="https://github.com/michaeltony6" target="_blank" rel="noopener">github.com/michaeltony6</a>
+          <a class="go" href="https://github.com/michaeltony6" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">↗</a>
+        </div>
+        <div class="contact-row">
+          <span class="k">Résumé</span>
+          <a class="v" href="Michael-Tony-Resume.pdf" target="_blank" rel="noopener">One page, PDF</a>
+          <a class="go" href="Michael-Tony-Resume.pdf" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="foot wrap">
+    <span>© 2026 Michael Tony · New York City area</span>
+    <span>Plain HTML, canvas and WebGL. No frameworks.</span>
+    <a href="#fetch">Back to top ↑</a>
+  </div>
+</footer>
+
+<script src="js/util.js"></script>
+<script src="js/hero.js"></script>
+<script src="js/cpu.js"></script>
+<script src="js/leg.js"></script>
+<script src="js/unilert.js"></script>
+<script src="js/trace.js"></script>
+<script src="js/rowhammer.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
