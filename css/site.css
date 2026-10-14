@@ -11,8 +11,9 @@
   --fg: #e9ebf0;
   --fg-2: #a3aaba;
   --fg-3: #6b7388;
-  --accent: #f0c24b;      /* accent: bond-wire gold */
-  --accent-soft: rgba(240, 194, 75, 0.12);
+  --accent: #e2b04e;      /* accent: flat gold for small text and lines */
+  --accent-soft: rgba(226, 176, 78, 0.12);
+  --gold-ink: #1c1205;    /* text on metallic gold */
   --signal: #72e0cf;      /* secondary: live / ok */
   --signal-soft: rgba(114, 224, 207, 0.12);
   --alert: #ff6767;       /* flush, bit flip, saturation */
@@ -29,6 +30,8 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
@@ -131,14 +134,14 @@ button { font: inherit; color: inherit; }
 .stages a.io b { color: var(--signal); }
 .stages a.io.is-active { background: var(--signal); border-color: var(--signal); border-style: solid; color: var(--bg); }
 .stages a.io.is-active b { color: var(--bg); }
-.stages a.is-active { background: var(--accent); border-color: var(--accent); color: var(--bg); }
-.stages a.is-active b { color: var(--bg); }
+.stages a.is-active { border-color: var(--accent); }
+.stages a.is-active b { color: var(--gold-ink); }
 .nav-cta {
   font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
   text-decoration: none; padding: 7px 12px; border: 1px solid var(--accent); color: var(--accent);
   border-radius: 3px; white-space: nowrap; transition: background-color 0.2s, color 0.2s;
 }
-.nav-cta:hover { background: var(--accent); color: var(--bg); }
+.nav-cta:hover { color: var(--gold-ink); }
 .nav-progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; }
 .nav-progress i { display: block; height: 100%; width: 0; background: var(--accent); transform-origin: left; }
 
@@ -220,8 +223,7 @@ button { font: inherit; color: inherit; }
   text-shadow: 0 2px 40px rgba(7, 9, 13, 0.6);
 }
 .hero-name span { display: block; white-space: nowrap; }
-.hero-name span:last-child { color: transparent; -webkit-text-stroke: 1.5px var(--fg); }
-@supports not (-webkit-text-stroke: 1px black) { .hero-name span:last-child { color: var(--fg); } }
+.hero-name .gold-text { -webkit-text-stroke: 1.5px #3a2406; filter: drop-shadow(0 3px 0 rgba(20, 12, 2, 0.55)) drop-shadow(0 18px 40px rgba(0, 0, 0, 0.5)); padding-right: 0.04em; }
 .hero-lede {
   margin: 0; max-width: 54ch;
   font-size: clamp(1.06rem, 1.4vw, 1.25rem); line-height: 1.55; color: var(--fg-2);
@@ -239,8 +241,8 @@ button { font: inherit; color: inherit; }
   transition: border-color 0.2s, background-color 0.2s, color 0.2s, transform 0.2s var(--ease);
 }
 .btn:hover { border-color: var(--fg-2); transform: translateY(-1px); }
-.btn-primary { background: var(--accent); border-color: var(--accent); color: var(--bg); font-weight: 500; }
-.btn-primary:hover { background: #f7d06e; border-color: #f7d06e; }
+.btn-primary { font-weight: 600; box-shadow: 0 1px 0 rgba(255, 240, 190, 0.35) inset, 0 6px 24px rgba(226, 176, 78, 0.18); }
+.btn-primary:hover { box-shadow: 0 1px 0 rgba(255, 240, 190, 0.45) inset, 0 8px 30px rgba(226, 176, 78, 0.3); }
 .btn .arrow { transition: transform 0.25s var(--ease); }
 .btn:hover .arrow { transform: translateY(2px); }
 .hero-status {
@@ -302,6 +304,7 @@ h2 {
   max-width: 17ch;
 }
 h2 em { font-style: normal; color: var(--accent); }
+h2 em.gold-text { padding-right: 0.04em; }
 .section-sub { margin: 0; max-width: 60ch; color: var(--fg-2); font-size: 1.1rem; }
 
 h3 {
@@ -376,7 +379,7 @@ p { text-wrap: pretty; }
   transition: border-color 0.2s, background-color 0.2s, color 0.2s;
 }
 .ctl:hover { border-color: var(--accent); }
-.ctl[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.ctl[aria-pressed="true"] { font-weight: 500; }
 .ctl-group { display: inline-flex; }
 .ctl-group .ctl { border-radius: 0; }
 .ctl-group .ctl:first-child { border-radius: 3px 0 0 3px; }
@@ -693,7 +696,7 @@ input[type="range"]::-moz-range-thumb { width: 11px; height: 11px; background: v
   margin: 0 0 clamp(28px, 4vw, 48px); max-width: none;
 }
 .contact-title span { display: inline-block; }
-.contact-title .o { color: transparent; -webkit-text-stroke: 1.5px var(--fg); }
+.contact-title .gold-text, .page-head h1 .gold-text { -webkit-text-stroke: 1.2px #3a2406; filter: drop-shadow(0 3px 0 rgba(20, 12, 2, 0.55)); padding-right: 0.04em; }
 .contact-grid { display: grid; gap: 40px 56px; grid-template-columns: minmax(0, 1fr); }
 @media (min-width: 1040px) { .contact-grid { grid-template-columns: minmax(0, 4.6fr) minmax(0, 7.4fr); } }
 .contact-grid > p { margin: 0; color: var(--fg-2); font-size: 1.15rem; max-width: 42ch; }
@@ -751,7 +754,6 @@ footer {
   margin: 18px 0 20px; font-family: var(--font-display); font-stretch: 125%; font-weight: 800;
   font-size: clamp(3rem, 10vw, 8.5rem); line-height: 0.86; letter-spacing: -0.035em; text-transform: uppercase;
 }
-.page-head h1 .o { color: transparent; -webkit-text-stroke: 1.5px var(--fg); }
 .page-head .section-sub { font-size: 1.15rem; }
 .graph-stats { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 26px; font-family: var(--font-mono); font-size: 12px; color: var(--fg-3); letter-spacing: 0.04em; }
 .graph-stats b { color: var(--fg); font-weight: 500; }
@@ -765,9 +767,44 @@ footer {
 .back { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; color: var(--fg-2); text-decoration: none; }
 .back:hover { color: var(--accent); }
 
-/* ───────────────────────── cursor trail ───────────────────────── */
+/* ───────────────────────── gold cursor + trail ───────────────────────── */
+.has-probe, .has-probe * { cursor: none !important; }
 .probe { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 300; }
 
+/* ───────────────────────── metallic gold (last, so it wins over base backgrounds) ───────────────────────── */
+/* Metallic gold. JS (js/gold.js) sets --gx/--gy (glare position inside the
+   element) and --ga (0..1, how close the pointer is). */
+@property --gx { syntax: '<length>'; inherits: false; initial-value: -400px; }
+@property --gy { syntax: '<length>'; inherits: false; initial-value: -400px; }
+@property --ga { syntax: '<number>'; inherits: false; initial-value: 0; }
+@property --sx { syntax: '<percentage>'; inherits: false; initial-value: 160%; }
+.gold-text, .gold-bg, .btn-primary, .stages a.is-active:not(.io), .nav-cta:hover, .ctl[aria-pressed="true"] {
+  background-image:
+    radial-gradient(circle at var(--gx) var(--gy), rgb(255 253 240 / calc(var(--ga) * 0.95)) 0, rgb(255 232 160 / calc(var(--ga) * 0.5)) 70px, rgb(255 232 160 / 0) 170px),
+    linear-gradient(104deg, rgb(255 255 255 / 0) 42%, rgb(255 250 225 / 0.55) 50%, rgb(255 255 255 / 0) 58%),
+    var(--metal);
+  background-size: 100% 100%, 260% 100%, 100% 100%;
+  background-position: 0 0, var(--sx) 0, 0 0;
+  background-repeat: no-repeat;
+  transition: --gx 0.22s ease-out, --gy 0.22s ease-out, --ga 0.45s ease, transform 0.2s var(--ease), box-shadow 0.2s ease;
+  animation: sheen 9s ease-in-out infinite;
+}
+@keyframes sheen { 0%, 62% { --sx: 160%; } 82%, 100% { --sx: -60%; } }
+.gold-text {
+  --metal: linear-gradient(176deg, #fff0bc 0%, #f1cc68 14%, #d6a03a 30%, #ffefb0 41%, #b37b25 50%, #5b390c 57%, #7c5318 63%, #c48f2e 76%, #f0ca68 90%, #ffe8a4 100%);
+  color: transparent;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+  text-shadow: none;
+}
+.gold-text::selection { -webkit-text-fill-color: var(--bg); }
+.gold-bg, .btn-primary, .stages a.is-active:not(.io), .nav-cta:hover, .ctl[aria-pressed="true"] {
+  /* brushed gold: no dark horizon band behind small text */
+  --metal: linear-gradient(180deg, #fff3c8 0%, #f5d47e 16%, #e6b452 46%, #cf9a38 78%, #e9c063 100%);
+  color: var(--gold-ink) !important; border-color: #b8842c !important; }
+
 @media (prefers-reduced-motion: reduce) {
+  .gold-text, .gold-bg, .btn-primary, .stages a, .ctl { animation: none !important; }
   *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
 }

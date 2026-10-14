@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Page Fault · Michael Tony</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#07090d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400..700&display=swap">
+<link rel="stylesheet" href="/css/site.css">
+<style>
+  .fault { min-height: 100svh; display: grid; align-content: center; padding: calc(110px + env(safe-area-inset-top, 0px)) var(--gutter) 80px; }
+  .fault h1 { margin: 18px 0 8px; font-family: var(--font-display); font-stretch: 125%; font-weight: 800; font-size: clamp(6rem, 26vw, 20rem); line-height: 0.82; letter-spacing: -0.05em; }
+  .fault h1 .gold-text { -webkit-text-stroke: 1.5px #3a2406; filter: drop-shadow(0 4px 0 rgba(20, 12, 2, 0.55)); padding-right: 0.04em; }
+  .fault h2 { font-size: clamp(1.8rem, 4.4vw, 3.2rem); max-width: none; }
+  .fault pre { margin: 26px 0 0; padding: 16px 18px; max-width: 640px; overflow-x: auto; background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); font-family: var(--font-mono); font-size: 12.5px; line-height: 1.7; color: var(--fg-2); }
+  .fault pre b { color: var(--alert); font-weight: 500; }
+  .fault pre i { color: var(--signal); font-style: normal; }
+  .fault .hero-actions { margin-top: 30px; }
+</style>
+</head>
+<body>
+<header class="nav is-scrolled" id="nav">
+  <a class="brand" href="/" aria-label="Michael Tony, main site">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="mtgold" x1="0" y1="0" x2="0.15" y2="1"><stop offset="0" stop-color="#fff0bc"/><stop offset="0.3" stop-color="#e9bd57"/><stop offset="0.45" stop-color="#ffefb0"/><stop offset="0.56" stop-color="#9c6a1f"/><stop offset="0.64" stop-color="#6a4512"/><stop offset="0.82" stop-color="#d29c38"/><stop offset="1" stop-color="#f6d27a"/></linearGradient></defs><path d="M4 21.5V7l5 5 5-5v14.5M14 7h14M21 7v14.5" fill="none" stroke="url(#mtgold)" stroke-width="2.8" stroke-linecap="square" stroke-linejoin="bevel"/><circle cx="4" cy="23" r="2.5" fill="#72e0cf"/><circle cx="14" cy="23" r="2.5" fill="#72e0cf"/><circle cx="21" cy="23" r="2.5" fill="#72e0cf"/></svg>
+    <span class="brand-name">Michael Tony</span>
+  </a>
+  <a class="nav-cta" href="/">Main site</a>
+  <div class="nav-progress" aria-hidden="true"><i id="nav-progress"></i></div>
+</header>
+
+<main id="main" class="fault">
+  <div class="wrap" style="width: 100%">
+    <p class="stage-tag"><b>MEM</b> Page fault<span class="rule" aria-hidden="true"></span></p>
+    <h1><span class="gold-text">404</span></h1>
+    <h2>Address not mapped.</h2>
+    <pre><b>SIGSEGV</b>  load from an unmapped page
+  pc    0x00000404   <i>; no page at this address</i>
+  fix   flush pipeline, refetch from 0x0000</pre>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="/">Back to the main site</a>
+      <a class="btn" href="/graphs.html">Desmos graphs</a>
+    </div>
+  </div>
+</main>
+
+<script src="/js/util.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/gold.js"></script>
+<script src="/js/cursor.js"></script>
+</body>
+</html>

@@ -60,6 +60,7 @@
     followBtn.setAttribute('aria-pressed', String(m === 'follow'));
     led.textContent = m === 'walk' ? 'Walking' : 'Following';
     canvas.style.touchAction = m === 'follow' && manual ? 'none' : 'pan-y';
+    if (m === 'walk') MT.trailOff = false;
   }
   walkBtn.addEventListener('click', () => setMode('walk', true));
   followBtn.addEventListener('click', () => setMode('follow', true));
@@ -77,9 +78,11 @@
     clearTimeout(leaveTimer);
     if (mode === 'walk' && !manual) setMode('follow', false);
     if (mode === 'walk' && manual && e.pointerType !== 'touch') setMode('follow', false);
+    MT.trailOff = mode === 'follow';   // the leg draws its own foot trail; hide the cursor trail over it
   });
   canvas.addEventListener('pointerdown', (e) => { if (mode === 'follow') toMeters(e); });
   canvas.addEventListener('pointerleave', () => {
+    MT.trailOff = false;
     if (!manual) leaveTimer = setTimeout(() => setMode('walk', false), 900);
   });
 
