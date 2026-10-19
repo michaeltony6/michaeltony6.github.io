@@ -12,13 +12,22 @@
 <link rel="stylesheet" href="/css/site.css">
 <style>
   .fault { min-height: 100svh; display: grid; align-content: center; padding: calc(110px + env(safe-area-inset-top, 0px)) var(--gutter) 80px; }
-  .fault h1 { margin: 18px 0 8px; font-family: var(--font-display); font-stretch: 125%; font-weight: 800; font-size: clamp(6rem, 26vw, 20rem); line-height: 0.82; letter-spacing: -0.05em; }
+  .fault h1 { margin: 18px 0 8px; font-family: var(--font-display); font-stretch: 125%; font-weight: 800; font-size: clamp(5.5rem, 21vw, 14rem); line-height: 0.82; letter-spacing: -0.05em; }
   .fault h1 .gold-text { -webkit-text-stroke: 1.5px #3a2406; filter: drop-shadow(0 4px 0 rgba(20, 12, 2, 0.55)); padding-right: 0.04em; }
   .fault h2 { font-size: clamp(1.8rem, 4.4vw, 3.2rem); max-width: none; }
   .fault pre { margin: 26px 0 0; padding: 16px 18px; max-width: 640px; overflow-x: auto; background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); font-family: var(--font-mono); font-size: 12.5px; line-height: 1.7; color: var(--fg-2); }
   .fault pre b { color: var(--alert); font-weight: 500; }
   .fault pre i { color: var(--signal); font-style: normal; }
   .fault .hero-actions { margin-top: 30px; }
+  .fault > .wrap { min-width: 0; }
+  .game { margin-top: 26px; min-width: 0; }
+  .game-canvas { display: block; width: 100%; max-width: 100%; height: 236px; touch-action: manipulation; cursor: pointer; outline: none; }
+  .game-canvas:focus-visible { box-shadow: inset 0 0 0 2px var(--accent); }
+  .game .keys { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+  .game kbd { font-family: var(--font-mono); font-size: 10.5px; padding: 1px 6px; border: 1px solid var(--line-2); border-bottom-width: 2px; border-radius: 3px; color: var(--fg-2); background: var(--bg-3); }
+  .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .game .touch { display: none; }
+  @media (max-width: 640px), (pointer: coarse) { .game-canvas { height: 214px; } .game .desk { display: none; } .game .touch { display: inline; } }
 </style>
 </head>
 <body>
@@ -36,7 +45,13 @@
     <p class="stage-tag"><b>MEM</b> Page fault<span class="rule" aria-hidden="true"></span></p>
     <h1><span class="gold-text">404</span></h1>
     <h2>Address not mapped.</h2>
-    <pre><b>SIGSEGV</b>  load from an unmapped page
+    <div class="bench game" id="fault-panel" hidden>
+      <div class="bench-head"><span><span class="path">mem/</span>page_fault.exe · reach 0x0404 to map the page</span><span class="led" id="fault-led">Idle</span></div>
+      <canvas class="game-canvas" id="fault-game" tabindex="0" aria-label="Mini game: a chip runs along a circuit trace. Press Space or tap to jump over components. Stay on the ground under high bit flips and jump the low ones."></canvas>
+      <div class="bench-foot keys"><span class="desk"><kbd>Space</kbd> or <kbd>↑</kbd> jump · <kbd>↓</kbd> duck · <kbd>P</kbd> pause</span><span><span class="touch">Tap to jump. </span>Jump the parts, stay under high bit flips, jump the low ones.</span></div>
+      <p class="visually-hidden" id="fault-live" aria-live="polite"></p>
+    </div>
+    <pre id="fault-log"><b>SIGSEGV</b>  load from an unmapped page
   pc    0x00000404   <i>; no page at this address</i>
   fix   flush pipeline, refetch from 0x0000</pre>
     <div class="hero-actions">
@@ -50,5 +65,6 @@
 <script src="/js/main.js"></script>
 <script src="/js/gold.js"></script>
 <script src="/js/cursor.js"></script>
+<script src="/js/fault-game.js"></script>
 </body>
 </html>

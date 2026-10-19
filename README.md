@@ -22,7 +22,8 @@ The page is laid out as a five-stage pipeline: **IF** (intro), **ID** (about, co
 | `js/main.js` | Nav state, scroll reveals, decoder panel, click-to-load Desmos embeds, copy-email button. |
 | `js/cursor.js` | Gold arrow cursor with a short gold-wire trail routed like a PCB trace (mouse only; off for touch and reduced motion). The trail hides over the leg demo while it follows the pointer. |
 | `js/gold.js` | Moves the glare on metallic-gold elements toward the pointer. |
-| `404.html` | Custom not-found page (GitHub Pages serves it for any missing URL). |
+| `404.html` | Custom not-found page (GitHub Pages serves it for any missing URL), with the Page Fault mini game. |
+| `js/fault-game.js` | Page Fault: an offline runner game on the 404 page. Jump the components, dodge bit flips, reach 0x0404. Best score is saved in the visitor's browser. |
 | `og.jpg` | Link-preview image for LinkedIn, iMessage, Slack and similar. |
 | `Michael-Tony-Resume.pdf` | Linked from the nav and contact section. It includes your phone number. |
 
